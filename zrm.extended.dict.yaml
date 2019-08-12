@@ -1,0 +1,22 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 朙月·简体·拼音
+# 扩展词库
+# 不需要的词库请注释掉
+---
+name: zrm.extended
+version: "0.1"
+sort: by_weight
+import_tables:
+  - zrm.LuoHaiHuan_base
+  - zrm.GuTaoWa_9wan
+  - zrm
+  - zrm.pop
+  - zrm.acg
+  - zrm.traditional_chinese
+  - zrm.history
+  - zrm.poetries
+  - zrm.Fundset
+
+...

@@ -1,0 +1,75 @@
+customization: 3234736099
+engine:
+  filters:
+    - uniquifier
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - script_translator
+key_binder:
+  import_preset: default
+punctuator:
+  import_preset: default
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
+reverse_lookup:
+  comment_format:
+    - "xform/([nl])v/$1ü/"
+  dictionary: stroke
+  enable_completion: true
+  preedit_format:
+    - "xlit/hspnz/一丨丿丶乙/"
+  prefix: "`"
+  suffix: "'"
+  tips: "〔筆畫〕"
+schema:
+  author:
+    - aerian
+  dependencies:
+    - stroke
+  description: |
+    自然码+辅助码方案。
+    
+  name: "自然码"
+  schema_id: zrm
+  version: 0.15.custom.3234736099
+speller:
+  algebra:
+    - "derive/^(\\w*);(\\w)(\\w)$/$1;$2$3/"
+    - "derive/^(\\w*);(\\w)(\\w)$/$1;$2/"
+    - "derive/^(\\w*);(\\w)(\\w)$/$1/"
+    - "abbrev/^(.{2});+$/$1/"
+  alphabet: "zyxwvutsrqponmlkjihgfedcba;"
+  delimiter: " '"
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: ["中文", "西文"]
+  - name: full_shape
+    states: ["半角", "全角"]
+  - name: simplification
+    states: ["漢字", "汉字"]
+  - name: ascii_punct
+    states: ["。，", "．，"]
+translator:
+  dictionary: zrm.extended
+  preedit_format:
+    []
+  prism: zrm
